@@ -1,0 +1,73 @@
+#!/usr/bin/env node
+'use strict';
+// Read-Set .env config
+require('dotenv').config();
+
+// Module dependencies
+const app = require('../server');
+const debug = require('debug')('mongo-scraper:server');
+const http = require('http'),
+	chalk = require('chalk');
+
+// Normalize a port into a number, string, or false
+const normalizePort = (val) => {
+	const PORT = parseInt(val, 10);
+
+	if (isNaN(PORT)) {
+		// named pipe
+		return val;
+	}
+
+	if (PORT >= 0) {
+		// port number
+		return PORT;
+	}
+
+	return false;
+};
+
+// Event listener for HTTP server "error" event
+const onError = (error) => {
+	if (error.syscall !== 'listen') {
+		throw error;
+	}
+
+	const bind = typeof PORT === 'string' ? 'Pipe ' + PORT : 'Port ' + PORT;
+
+	// handle specific listen errors with friendly messages
+	switch (error.code) {
+		case 'EACCES':
+			console.error(bind + ' requires elevated privileges');
+			process.exit(1);
+			break;
+		case 'EADDRINUSE':
+			console.error(bind + ' is already in use');
+			process.exit(1);
+			break;
+		default:
+			throw error;
+	}
+};
+
+// Get port from environment and store in Express
+const PORT = normalizePort(process.env.PORT || '3001');
+app.set('port', PORT);
+
+// Event listener for HTTP server "listening" event
+const onListening = () => {
+	const addr = server.address();
+	const bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.PORT;
+	console.log(
+		chalk.black.bold.bgGreen('Listening on PORT'),
+		chalk.white.bold.bgRed(PORT),
+	);
+	debug('===> 🌎 Listening on ' + bind);
+};
+
+// Create HTTP server
+const server = http.createServer(app);
+
+// Listen on provided port, on all network interfaces
+server.listen(PORT);
+server.on('error', onError);
+server.on('listening', onListening);

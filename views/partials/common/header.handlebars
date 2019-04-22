@@ -1,0 +1,60 @@
+<header class="hero is-info is-small header-image">
+  <div class="hero-head">
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="/">
+            <h2>MONGO Scraper</h2>
+          </a>
+          <span class="navbar-burger burger" data-target="mainNavMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="mainNavMenu" class="navbar-menu">
+          <div class="navbar-end">
+            <span class="navbar-item">
+              <a class="button is-info is-outlined is-inverted favorite-icon">
+                <span class="icon">
+                  <i class="fa fa-heart"></i>
+                </span>
+                <span>Favorites</span>
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <p class="title is-2">
+        New York Times
+      </p>
+      <span class="nav-item">
+        <a class="button is-info is-outlined is-inverted" id="scrapeDataBTN">
+          <span class="icon">
+            <i class="fa fa-cloud-download-alt"></i>
+          </span>
+          <span>Scrape News</span>
+        </a>
+      </span>
+    </div>
+  </div>
+
+  <div class="hero-foot">
+    <nav class="tabs is-boxed is-fullwidth">
+      <div class="container">
+        <ul>
+          {{#each menu}}
+          <li class="topic {{class}}" data-tab={{topic}}>
+            <a href="/html/articles/topic/{{topic}}">{{capitalizeFirstLetter topic}}</a>
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>

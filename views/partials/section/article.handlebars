@@ -1,0 +1,48 @@
+{{#each data}}
+<article class="media is-shady" data-id={{_id}} data-title="{{title}}" data-author={{author}} data-posts={{posts}}>
+  <figure class="media-left image is-hidden-mobile">
+    <img src={{imageURL}} alt="Post Image">
+  </figure>
+  <div class="media-content">
+    <div class="content">
+      <p>
+        <a href=https://www.nytimes.com{{articleURL}}> <strong>{{title}}</strong></a>
+        <br>
+        {{summary}}
+      </p>
+    </div>
+    <div class="level is-mobile">
+      <div class="level-left">
+        <p class="level-item">
+          <span><small><i class="fas fa-user"></i></small>&nbsp;<small>{{author}}</small></span>
+        </p>
+      </div>
+      <div class="level-right">
+        <p class="level-item">
+          <span><small><i
+                class="far fa-calendar-alt"></i></small>&nbsp;<small>{{formatDateTime publishedOnDate "ll"}}</small></span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="media-right">
+    <a class="level-item like-icon" data-id={{_id}}>
+      {{#if isLiked}}
+      <div class="icon is-medium"><i class="fas fa-heart fa-lg"></i></div>
+      {{else}}
+      <div class="icon is-medium"><i class="far fa-heart fa-lg"></i></div>
+      {{/if}}
+    </a>
+    <a class="level-item comment-icon" data-id={{_id}}> 
+      {{#if posts.length}}
+      <div class="icon is-medium"><i class="fas fa-comments fa-lg"></i></div>
+      {{else}}
+      <div class="icon is-medium"><i class="far fa-comments fa-lg"></i></div>
+      {{/if}}
+    </a>
+  </div>
+</article>
+{{!-- {{> section/post}} --}}
+{{else}}
+<p>No articles available</p>
+{{/each}}

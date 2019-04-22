@@ -1,0 +1,96 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	font-family: 'Lato', 'Arial', 'sans-serif';
+	text-rendering: optimizeLegibility;
+	line-height: 1.15;
+}
+
+body.main {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+.section {
+	flex: 1;
+}
+
+.hero.is-info .tabs.is-boxed li.is-active a,
+.hero.is-info .tabs.is-boxed li.is-active a:hover,
+.section.main {
+	background-color: #f0f0f0;
+}
+
+.image {
+	width: 205px;
+	height: 136.66px;
+}
+figure img {
+	border-radius: 5px;
+	transition: 0.4s ease-in-out;
+	filter: grayscale(50%);
+}
+
+figure:hover img {
+	filter: grayscale(0);
+}
+
+@media (max-width: 1024px) {
+	.hero-foot .tabs ul {
+		width: 100%;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+	.hero-foot .tabs li {
+		width: 25%;
+	}
+}
+@media (max-width: 768px) {
+	.hero-foot .tabs ul {
+		width: 100%;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+	.hero-foot .tabs li {
+		width: 50%;
+	}
+}
+.hero-foot .tabs a {
+	flex-direction: column;
+}
+
+.card .card-header .icon {
+	transition: transform 150ms ease-out;
+	color: #209cee;
+}
+
+.card.is-collapsed .card-header .icon {
+	transform: rotate(180deg);
+}
+
+.card.is-collapsed .card-content {
+	visibility: hidden;
+	height: 0px;
+	padding: 0;
+}
+
+.modal-card-title {
+	flex-shrink: 1;
+}
+
+button .delete {
+	cursor: pointer;
+}
+/* .is-shady {
+	animation: flyintoright 0.4s backwards;
+	box-shadow: rgba(0, 0, 0, 0.1) 0 1px 0;
+	transition: all 0.2s ease-in-out;
+}
+.is-shady:hover {
+	box-shadow: 0 10px 16px rgba(0, 0, 0, 0.13), 0 3px 3px rgba(0, 0, 0, 0.19);
+} */
