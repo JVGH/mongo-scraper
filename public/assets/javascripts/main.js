@@ -44,8 +44,6 @@ const toggleFavArticle = (id) => {
 const removeFavArticle = (id) => {
 	$.ajax(`/api/articles/toggleIsLiked/${id}`, { type: 'PUT' }).then((res) => {
 		$('.fav-item').remove(`section[data-id='${id}']`);
-		// const favItem = $(`.fav-item[data-id='${id}']`)
-		// $('#favs').remove(favItem);
 	});
 };
 
