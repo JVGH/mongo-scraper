@@ -4,7 +4,10 @@ module.exports = {
 	nytScraper: async (section) => {
 		try {
 			const data = [];
-			const browser = await puppeteer.launch();
+			const browser = await puppeteer.launch({ 'args' : [
+				'--no-sandbox',
+				'--disable-setuid-sandbox'
+			]});
 			const page = await browser.newPage();
 			page.setUserAgent(
 				'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
