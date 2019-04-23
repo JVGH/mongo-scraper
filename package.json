@@ -51,7 +51,7 @@
 		"express-handlebars": "^3.0.2",
 		"http-errors": "^1.7.2",
 		"moment": "^2.24.0",
-		"mongoose": "^5.5.2",
+		"mongoose": "^5.5.3",
 		"morgan": "^1.9.1",
 		"puppeteer": "^1.14.0"
 	},

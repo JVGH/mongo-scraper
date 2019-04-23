@@ -222,6 +222,9 @@ $(document).ready(() => {
 
 				$('#comments').val('');
 				$('#name').val('');
+
+				$('.modal.is-active').removeClass('is-active');
+				location.reload();
 			})
 			.catch((err) => {
 				console.error(err);
@@ -272,7 +275,14 @@ $(document).ready(() => {
                         <span class="icon is-small">
                           <i class="fas fa-heart" aria-hidden="true" ></i>
                         </span>
-                      </a>
+											</a>
+											<a class="level-item" aria-label="link" href="https://www.nytimes.com${
+												article.articleURL
+											}" target="_blank">
+                        <span class="icon is-small">
+													<i class="fas fa-external-link-alt" aria-hidden="true" ></i>
+                        </span>
+											</a>
                     </div>
                     <div class="level-right">
                       <p class="level-item">
